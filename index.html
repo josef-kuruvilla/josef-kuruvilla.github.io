@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joseph Kuruvilla – Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pk6H+6YVrmVruYJKPpC8xTNjk+q0Zn6Ey4/JqE6fK9bHrGpRv+JZd+Gms+2jFgD+f1mYPjCHC3rmYx1Vj+E+Eg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <h1 class="logo">Joseph Kuruvilla</h1>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <section class="hero reveal">
+    <div class="container">
+      <div class="intro">
+        <h2>Hello, I'm <span>Joseph Kuruvilla</span></h2>
+        <p>A passionate Web Developer crafting beautiful and responsive experiences.</p>
+        <a href="#projects" class="btn">See My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container section reveal">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <img src="https://via.placeholder.com/200" alt="Joseph Kuruvilla" class="profile-pic"/>
+      <p>
+        Hi! I’m Joseph, specializing in front-end development with expertise in
+        HTML5, CSS3, JavaScript (ES6+), and modern frameworks like React.
+        I love turning designs into interactive, accessible web applications.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills" class="container section reveal">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-bar">
+        <h3>HTML &amp; CSS</h3>
+        <div class="skill-progress" data-level="90%"></div>
+      </div>
+      <div class="skill-bar">
+        <h3>JavaScript</h3>
+        <div class="skill-progress" data-level="85%"></div>
+      </div>
+      <div class="skill-bar">
+        <h3>React</h3>
+        <div class="skill-progress" data-level="80%"></div>
+      </div>
+      <div class="skill-bar">
+        <h3>Git &amp; GitHub</h3>
+        <div class="skill-progress" data-level="75%"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container section reveal">
+    <h2>My Projects</h2>
+    <div class="projects-container">
+      <div class="project">
+        <img src="https://via.placeholder.com/300x180" alt="Project One"/>
+        <div class="project-info">
+          <h3>Project One</h3>
+          <p>Responsive landing page with custom animations.</p>
+          <a href="#" class="btn-small">View Live</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/300x180" alt="Project Two"/>
+        <div class="project-info">
+          <h3>Project Two</h3>
+          <p>Interactive JavaScript dashboard with API integrations.</p>
+          <a href="#" class="btn-small">View Live</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/300x180" alt="Project Three"/>
+        <div class="project-info">
+          <h3>Project Three</h3>
+          <p>React single-page app with dynamic routing.</p>
+          <a href="#" class="btn-small">View Live</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container section reveal">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-github fa-2x"></i></a>
+      <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+      <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Joseph Kuruvilla</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
