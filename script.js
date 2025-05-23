@@ -1,20 +1,29 @@
-document.getElementById('theme-toggle').onclick=()=>{
-  document.body.classList.toggle('dark-mode');
-};
-
 async function sendMessage() {
   const input = document.getElementById("chat-input");
-  const message = input.value;
+  const message = input.value.trim();
   input.value = "";
+
+  if (!message) return; // Don't send empty messages
 
   document.getElementById("chat-box").innerHTML += `<p><b>You:</b> ${message}</p>`;
 
-  const response = await fetch("https://huggingface-chatbot.onrender.com/chat", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({message})
-  });
+  try {
+    const response = await fetch("https://huggingface-chatbot.onrender.com/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
 
-  const data = await response.json();
-  document.getElementById("chat-box").innerHTML += `<p><b>Assistant:</b> ${data.reply}</p>`;
+    if (!response.ok) {
+      throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    document.getElementById("chat-box").innerHTML += `<p><b>Assistant:</b> ${data.reply}</p>`;
+  } catch (error) {
+    document.getElementById("chat-box").innerHTML += `<p style="color:red;"><b>Error:</b> ${error.message}</p>`;
+    console.error("Error fetching from backend:", error);
+  }
 }
