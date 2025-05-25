@@ -21,7 +21,7 @@ async function sendMessage() {
     }
 
     const data = await response.json();
-    document.getElementById("chat-box").innerHTML += `<p><b>Assistant:</b> ${data.reply}</p>`;
+    document.getElementById("chat-box").innerHTML += `<p><b>Joseph:</b> ${data.reply}</p>`;
   } catch (error) {
     document.getElementById("chat-box").innerHTML += `<p style="color:red;"><b>Error:</b> ${error.message}</p>`;
     console.error("Error fetching from backend:", error);
