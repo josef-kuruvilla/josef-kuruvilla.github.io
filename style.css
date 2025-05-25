@@ -40,6 +40,47 @@ section {padding:3rem 1rem;text-align:center;}
 
 footer {padding:1rem;background:var(--primary);color:#fff;text-align:center;}
 
-.chat-container {max-width:500px;margin:auto;background:#fff;padding:1rem;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.1);}
-#chat-box {height:200px;overflow:auto;margin-bottom:1rem;}
-#chat-input {width:80%;padding:0.5rem;}
+.chat-container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#chat-box {
+  height: 350px; /* Increased from default */
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
