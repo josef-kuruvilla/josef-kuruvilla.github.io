@@ -35,10 +35,6 @@ function appendMessage(sender, text, isError = false) {
   const bubble = document.createElement("div");
   bubble.className = "chat-bubble " + (sender === "You" ? "user" : "bot");
 
-  const avatar = document.createElement("img");
-  avatar.src = sender === "You" ? "https://i.pravatar.cc/40?u=user" : "https://i.pravatar.cc/40?u=bot";
-  avatar.className = "avatar";
-
   const content = document.createElement("div");
   content.className = "bubble-content";
   content.innerHTML = `<strong>${sender}</strong><p>${text}</p><span class="timestamp">${getCurrentTime()}</span>`;
@@ -55,10 +51,6 @@ function showTypingIndicator() {
   typing.className = "chat-bubble bot typing";
   typing.id = "typing-indicator";
 
-  const avatar = document.createElement("img");
-  avatar.src = "https://i.pravatar.cc/40?u=bot";
-  avatar.className = "avatar";
-
   const dots = document.createElement("div");
   dots.className = "bubble-content";
   dots.innerHTML = `<strong>Joseph</strong><p class="dots">...</p>`;
@@ -73,11 +65,6 @@ function showTypingIndicator() {
 function removeTypingIndicator() {
   const typing = document.getElementById("typing-indicator");
   if (typing) typing.remove();
-}
-
-function getCurrentTime() {
-  const now = new Date();
-  return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
 input.addEventListener("keydown", function (e) {
