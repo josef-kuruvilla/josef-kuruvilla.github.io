@@ -1,78 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joseph Kuruvilla Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="header"></div>
-  <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" alt="Profile Photo" class="profile-pic">
-  <div class="intro">
-    <div class="animated-text">Hey, I'm <span class="highlight">Joseph Kuruvilla</span>.</div>
-    <div class="animated-text">I'm a data scientist working at Deloitte</div>
-    <div class="animated-text">I try my best to create things with <span class="heart">&#128293;</span></div>
-  </div>
-
-  <!-- Chatbot Toggle Button -->
-  <button id="chat-toggle" aria-label="Open chat">💬<span class="chat-label">AI Chatbot</span></button>
-
-  <!-- Chat Overlay -->
-  <div id="chat-overlay">
-    <div class="chat-header">
-      <span>Chat with Joseph</span>
-      <button id="chat-close" aria-label="Close chat">✕</button>
-    </div>
+@@ -44,7 +44,7 @@ <h2>About Me</h2>
+  <h2>Chat with My Assistant</h2>
+  <div class="chat-container">
     <div id="chat-box"></div>
-    <div class="chat-input-row">
-      <input type="text" id="chat-input" placeholder="Ask me anything..." />
-      <button id="chat-send">Send</button>
-    </div>
+    <input type="text" id="chat-input" placeholder="Ask anything...">
+    <input type="text" id="chat-input" placeholder="Ask me anything...">
+    <button onclick="sendMessage()">Send</button>
   </div>
-
-  <!-- Projects Section -->
-  <section class="section" id="projects">
-    <h2>Projects</h2>
-    <div class="tiles">
-      <div class="tile">
-        <h3>Data Visualizer AI</h3>
-        <p>Interactive tool using ML models to visualize complex datasets with NLP-driven queries.</p>
-      </div>
-      <div class="tile">
-        <h3>Smart Resume Parser</h3>
-        <p>An NLP application that extracts candidate data from resumes and matches them to job descriptions.</p>
-      </div>
-      <div class="tile">
-        <h3>Financial Forecast Assistant</h3>
-        <p>Built a predictive analytics tool for time-series forecasting in the finance domain.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="section" id="experience">
-    <h2>Experience</h2>
-    <div class="tiles">
-      <div class="tile">
-        <h3>EstroTech Robotics</h3>
-        <p>Worked on AI algorithms powering robotic control systems and object detection.</p>
-      </div>
-      <div class="tile">
-        <h3>Deloitte</h3>
-        <p>Currently working as a Data Scientist building advanced analytics solutions for enterprise clients.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section" id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:joseph@example.com" style="color: #25d366;">joseph@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/joseph-kuruvilla" style="color: #25d366;">/in/joseph-kuruvilla</a></p>
-  </section>
-
-  <script src="script.js"></script>
-</body>
-</html>
+</section>
