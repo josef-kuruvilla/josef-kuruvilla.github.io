@@ -37,7 +37,7 @@ body {
   color: #f7f8fa;
 }
 .highlight { color: #25d366; font-weight:700; }
-.lowered {font-weight:400; font-size: 1rem;
+.lowered {font-weight:400; font-size: 0.9rem;
 }
 
 .heart {
