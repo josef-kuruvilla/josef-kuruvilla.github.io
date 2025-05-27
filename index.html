@@ -1,101 +1,77 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joseph Kuruvilla · Portfolio</title>
-
-  <!-- Fonts & stylesheet -->
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Joseph Kuruvilla Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- ── Snap 1 : Hero ─────────────────────────────── -->
-  <div class="snap-section" id="hero">
-    <div class="header"></div>
-
-    <img
-      class="profile-pic"
-      src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d"
-      alt="Profile photo"
-    />
-
-    <div class="intro">
-    <div class="animated-text">Hey, I'm <span class="highlight">Joseph Kuruvilla</span> 
-    <span class="wave">&#x1F44B;</span></div>
+  <div class="header"></div>
+  <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" alt="Profile Photo" class="profile-pic">
+  <div class="intro">
+    <div class="animated-text">Hey, I'm <span class="highlight">Joseph Kuruvilla</span>.</div>
     <div class="animated-text">I'm a data engineer working at Deloitte</div>
-    <div class="animated-text">Scroll down to know more about me!</div>
-
-  <!-- ── Snap 2 : Projects + Experience ────────────── -->
-  <div class="snap-section" id="work">
-    <!-- Projects -->
-    <section class="section" id="projects">
-      <h2>Projects</h2>
-
-      <div class="tiles">
-        <div class="tile">
-          <h3>Data Visualizer AI</h3>
-          <p>Interactive tool using ML models to visualise complex datasets with NLP-driven queries.</p>
-        </div>
-
-        <div class="tile">
-          <h3>Smart Resume Parser</h3>
-          <p>NLP app that extracts candidate data from resumes and matches them to job descriptions.</p>
-        </div>
-
-        <div class="tile">
-          <h3>Financial Forecast Assistant</h3>
-          <p>Predictive analytics tool for time-series forecasting in finance.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section class="section" id="experience">
-      <h2>Experience</h2>
-
-      <div class="tiles">
-        <div class="tile">
-          <h3>EstroTech Robotics</h3>
-          <p>Built AI algorithms powering robotic control systems and object detection.</p>
-        </div>
-
-        <div class="tile">
-          <h3>Deloitte</h3>
-          <p>Currently a Data Scientist building advanced analytics solutions for enterprise clients.</p>
-        </div>
-      </div>
-    </section>
+    <div class="animated-text">I try my best to create things with <span class="heart">&#128293;</span></div>
   </div>
 
-  <!-- ── Snap 3 : Contact ──────────────────────────── -->
-  <div class="snap-section" id="contact-wrap">
-    <section class="contact-section" id="contact">
-      <h2>Contact Me</h2>
-      <p>Email : <a href="mailto:joseph@example.com">joseph@example.com</a></p>
-      <p>LinkedIn : <a href="https://linkedin.com/in/joseph-kuruvilla">/in/joseph-kuruvilla</a></p>
-    </section>
-  </div>
+  <!-- Chatbot Toggle Button -->
+  <button id="chat-toggle" aria-label="Open chat">💬<span class="chat-label">AI Chatbot</span></button>
 
-  <!-- ── Chatbot button & overlay (unchanged JS) ───── -->
-  <button id="chat-toggle" aria-label="Open chat">
-    💬<span class="chat-label">AI Chatbot</span>
-  </button>
-
+  <!-- Chat Overlay -->
   <div id="chat-overlay">
     <div class="chat-header">
       <span>Chat with Joseph</span>
       <button id="chat-close" aria-label="Close chat">✕</button>
     </div>
-
     <div id="chat-box"></div>
-
     <div class="chat-input-row">
-      <input id="chat-input" type="text" placeholder="Ask me anything…" />
+      <input type="text" id="chat-input" placeholder="Ask me anything..." />
       <button id="chat-send">Send</button>
     </div>
   </div>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="tiles">
+      <div class="tile">
+        <h3>Data Visualizer AI</h3>
+        <p>Interactive tool using ML models to visualize complex datasets with NLP-driven queries.</p>
+      </div>
+      <div class="tile">
+        <h3>Smart Resume Parser</h3>
+        <p>An NLP application that extracts candidate data from resumes and matches them to job descriptions.</p>
+      </div>
+      <div class="tile">
+        <h3>Financial Forecast Assistant</h3>
+        <p>Built a predictive analytics tool for time-series forecasting in the finance domain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section" id="experience">
+    <h2>Experience</h2>
+    <div class="tiles">
+      <div class="tile">
+        <h3>EstroTech Robotics</h3>
+        <p>Worked on AI algorithms powering robotic control systems and object detection.</p>
+      </div>
+      <div class="tile">
+        <h3>Deloitte</h3>
+        <p>Currently working as a Data Scientist building advanced analytics solutions for enterprise clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:joseph@example.com" style="color: #25d366;">joseph@example.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/joseph-kuruvilla" style="color: #25d366;">/in/joseph-kuruvilla</a></p>
+  </section>
 
   <script src="script.js"></script>
 </body>
