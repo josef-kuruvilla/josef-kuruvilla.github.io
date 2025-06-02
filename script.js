@@ -8,21 +8,26 @@ const chatSend = document.getElementById('chat-send');
 
 // Welcome message options
 const welcomeMessages = [
-  `Hey there! 👋<br>You can ask me about:<br>
-   - Career<br>
-   - Projects<br>
-   - Something personal like hobbies<br>
-   - Something else, just shoot it.`,
-  `Hello! 😊 Curious about my background or projects?<br>Ask me about:<br>
-   - Career<br>
-   - Projects<br>
-   - Hobbies<br>
-   - Anything else.`,
-  `Hi! I'm JosephBot 🤖. Let's talk!<br>Topics you can try:<br>
-   - Career<br>
-   - Projects<br>
-   - Hobbies<br>
-   - Anything else!`
+  `Hey there! 👋 I'm JosephBot, your friendly digital buddy.<br>Wondering what to ask? Try one of these:<br>
+   • My career journey<br>
+   • Why I'm a good fit for your company and role<br>
+   • Cool projects I've worked on<br>
+   • My hobbies<br>
+   • Or surprise me with something fun!`,
+
+  `Hello! 😊 Curious about who I am?<br>You could ask my digital brain about:<br>
+   • My career journey<br>
+   • Why I'm a good fit for your company and role<br>
+   • Cool projects I've worked on<br>
+   • My hobbies<br>
+   • Or anything else — I'm all ears!`,
+
+  `Hi there! I'm JosephBot, at your service.<br>Need a starting point? You could ask about:<br>
+   • My career journey<br>
+   • Why I'm a good fit for your company and role<br>
+   • Cool projects I've worked on<br>
+   • My hobbies<br>
+   • Or just throw me a curveball!`
 ];
 
 // Event: open chatbot with welcome message
@@ -59,8 +64,11 @@ async function typeMessage(sender, text) {
   chatBox.appendChild(bubble);
 
   const p = content.querySelector('p');
+let buffer = '';
+
   for (let i = 0; i < text.length; i++) {
-    p.innerHTML += text[i];
+    buffer += text[i];
+    p.innerHTML = buffer; // allows <br> to be rendered properly
     await new Promise(r => setTimeout(r, 10)); // typing speed
     chatBox.scrollTop = chatBox.scrollHeight;
   }
