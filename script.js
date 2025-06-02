@@ -15,13 +15,6 @@ const welcomeMessages = [
    • My hobbies<br>
    • Or surprise me with something fun!`,
 
-  `Hello! 😊 Curious about who I am?<br>You could ask my digital brain about:<br>
-   • My career journey<br>
-   • Why I'm a good fit for your company and role<br>
-   • Cool projects I've worked on<br>
-   • My hobbies<br>
-   • Or anything else — I'm all ears!`,
-
   `Hi there! I'm JosephBot, at your service.<br>Need a starting point? You could ask about:<br>
    • My career journey<br>
    • Why I'm a good fit for your company and role<br>
