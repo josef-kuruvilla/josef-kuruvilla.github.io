@@ -23,11 +23,15 @@ const welcomeMessages = [
    • Or just throw me a curveball!`
 ];
 
+// Flags for first message
+let isFirstMessage = true;
+let firstBotBubble = null;
+let dotInterval = null;
+
 // Event: open chatbot with welcome message
 chatToggle.addEventListener('click', () => {
   chatOverlay.classList.add('open');
 
-  // Show random welcome message if chat is empty
   if (chatBox.children.length === 0) {
     const message = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
     showTypingIndicator().then(() => typeMessage('Joseph', message));
@@ -45,7 +49,7 @@ chatInput.addEventListener('keydown', e => {
   }
 });
 
-// Append message to chat box with typing animation
+// Typing animation
 async function typeMessage(sender, text) {
   const bubble = document.createElement('div');
   bubble.className = 'chat-bubble ' + (sender === 'You' ? 'user' : 'bot');
@@ -57,11 +61,11 @@ async function typeMessage(sender, text) {
   chatBox.appendChild(bubble);
 
   const p = content.querySelector('p');
-let buffer = '';
+  let buffer = '';
 
   for (let i = 0; i < text.length; i++) {
     buffer += text[i];
-    p.innerHTML = buffer; // allows <br> to be rendered properly
+    p.innerHTML = buffer;
     await new Promise(r => setTimeout(r, 10)); // typing speed
     chatBox.scrollTop = chatBox.scrollHeight;
   }
@@ -89,7 +93,7 @@ function showTypingIndicator() {
   });
 }
 
-// Append user message and fetch bot reply
+// Send message and fetch bot reply
 async function sendMessage() {
   const msg = chatInput.value.trim();
   if (!msg) return;
@@ -98,17 +102,63 @@ async function sendMessage() {
 
   await showTypingIndicator();
 
+  if (isFirstMessage) {
+    // Show placeholder bubble with animated dots
+    firstBotBubble = document.createElement('div');
+    firstBotBubble.className = 'chat-bubble bot';
+
+    const content = document.createElement('div');
+    content.className = 'bubble-content';
+    content.innerHTML = `<strong>Joseph</strong><p class="dots">First response will take a few seconds. Thinking<span>.</span></p>`;
+
+    firstBotBubble.appendChild(content);
+    chatBox.appendChild(firstBotBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Animate the dots (Thinking... → .... → .....)
+    const span = content.querySelector('span');
+    let dotCount = 1;
+    dotInterval = setInterval(() => {
+      span.textContent = '.'.repeat(dotCount);
+      dotCount = dotCount === 3 ? 1 : dotCount + 1;
+    }, 400);
+  }
+
   try {
     const res = await fetch('https://huggingface-chatbot.onrender.com/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: msg })
     });
+
     if (!res.ok) throw new Error(res.statusText);
     const { reply } = await res.json();
-    await typeMessage('Joseph', reply);
+
+    if (isFirstMessage && firstBotBubble) {
+      clearInterval(dotInterval);
+      const p = firstBotBubble.querySelector('p');
+      p.innerHTML = ''; // clear dots
+      let buffer = '';
+      for (let i = 0; i < reply.length; i++) {
+        buffer += reply[i];
+        p.innerHTML = buffer;
+        await new Promise(r => setTimeout(r, 10));
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+      firstBotBubble = null;
+      isFirstMessage = false;
+    } else {
+      await typeMessage('Joseph', reply);
+    }
   } catch (err) {
-    await typeMessage('Joseph', 'Sorry, something went wrong.');
+    if (isFirstMessage && firstBotBubble) {
+      clearInterval(dotInterval);
+      firstBotBubble.querySelector('p').innerText = 'Sorry, something went wrong.';
+      firstBotBubble = null;
+      isFirstMessage = false;
+    } else {
+      await typeMessage('Joseph', 'Sorry, something went wrong.');
+    }
     console.error(err);
   }
 }
