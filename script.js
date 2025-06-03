@@ -125,7 +125,7 @@ async function sendMessage() {
   }
 
   try {
-    const res = await fetch('https://huggingface-chatbot.onrender.com/chat', {
+    const res = await fetch('https://huggingface-chatbot-2.onrender.com/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: msg })
